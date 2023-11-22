@@ -6,7 +6,7 @@
 /*   By: aheinane <aheinane@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:19:35 by aheinane          #+#    #+#             */
-/*   Updated: 2023/11/21 17:29:13 by aheinane         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:30:50 by aheinane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ void	ft_puthexad_fd(unsigned int n)
 
 int	ft_putunbr_fd(unsigned int n)
 {
-	size_t count = 0;
+	size_t	count;
+
+	count = 0;
 	if (n >= 10)
 	{
-		count +=ft_putunbr_fd (n / 10);
-		count +=ft_putunbr_fd (n % 10);
+		count += ft_putunbr_fd (n / 10);
+		count += ft_putunbr_fd (n % 10);
 	}
 	else
 	{
@@ -46,12 +48,13 @@ int	ft_putunbr_fd(unsigned int n)
 	}
 	return (count);
 }
+
 int	ft_number_len(int num)
 {
 	size_t	len;
 
 	len = 0;
-	if(num <= 0)
+	if (num <= 0)
 		len = 1;
 	while (num)
 	{
@@ -60,12 +63,14 @@ int	ft_number_len(int num)
 	}
 	return (len);
 }
+
 int	ft_putnbr_fd(int n)
 {
 	long	i;
-	size_t count = 0;
+	size_t	count;
 
 	i = n;
+	count = 0;
 	if (i < 0)
 	{
 		count += ft_putchar_fd ('-');

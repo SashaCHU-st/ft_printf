@@ -6,7 +6,7 @@
 /*   By: aheinane <aheinane@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:48:21 by aheinane          #+#    #+#             */
-/*   Updated: 2023/11/21 16:43:56 by aheinane         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:31:31 by aheinane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	ft_puthexadbig_fd(unsigned long long n)
 		else
 			ft_putchar_fd(n + 'a' - 10);
 	}
-
 }
 
 int	ft_ptr_len(unsigned long long num)
