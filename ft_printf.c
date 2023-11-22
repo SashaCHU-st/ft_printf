@@ -6,7 +6,7 @@
 /*   By: aheinane <aheinane@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:05:44 by aheinane          #+#    #+#             */
-/*   Updated: 2023/11/22 13:29:24 by aheinane         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:22:48 by aheinane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_helper(va_list args, const char s)
 	else if (s == 's')
 		count += ft_putstr_fd(va_arg(args, char *));
 	else if (s == 'p')
-		count = ft_print_ptr(va_arg(args, unsigned long long));
+		count = ft_print_ptr(va_arg(args, unsigned long));
 	else if (s == 'd' || s == 'i' )
 		count = ft_putnbr_fd(va_arg(args, int));
 	else if (s == 'x')
@@ -42,7 +42,11 @@ int	ft_helper(va_list args, const char s)
 	else if (s == 'u')
 		count = ft_putunbr_fd(va_arg(args, unsigned int));
 	else if (s == '%')
+	{
 		count = write(1, "%", 1);
+		if (count < 0)
+			return (-1);
+	}
 	return (count);
 }
 
@@ -62,10 +66,22 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == '%')
 		{
 			count += ft_helper(args, s[i + 1]);
+			if (count < 0)
+			{
+				va_end(args);
+				return (-1);
+			}
 			i++;
 		}
 		else
+		{
 			count += write(1, &s[i], 1);
+			if (count < 0)
+			{
+				va_end(args);
+				return (-1);
+			}
+		}
 		i++;
 	}
 	va_end(args);
@@ -83,8 +99,8 @@ int	ft_printf(const char *s, ...)
 
 // 	ft_printf("MINE%d\n", -10);
 // 	printf("ORIG%d\n\n", -10);
-// 	int index1 = 	ft_printf("%d", -10);
-// 	int index2 = 	printf("%d", -10);
+// 	int index1 = 	ft_printf("\001\002\007\v\010\f\r\n");
+// 	int index2 = 	printf("\001\002\007\v\010\f\r\n");
 // printf("\n");
 // 	printf ("MINE = %d \nORIG = %d\n\n", index1, index2);
 // 	ft_printf("MINE %X %x %% %u %p \n",  -82, -82, -82, &p);
