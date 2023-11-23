@@ -6,7 +6,7 @@
 /*   By: aheinane <aheinane@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:06:49 by aheinane          #+#    #+#             */
-/*   Updated: 2023/11/22 17:21:38 by aheinane         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:30:43 by aheinane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int		ft_ptr_len(unsigned long num);
 int		ft_print_ptr(unsigned long ptr);
 int		ft_helper(va_list args, const char s);
 int		ft_print_hexa(unsigned long n);
-int		ft_print_hexabig(unsigned long  n);
+int		ft_print_hexabig(unsigned long n);
 
 #endif

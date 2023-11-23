@@ -6,21 +6,21 @@
 /*   By: aheinane <aheinane@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:05:44 by aheinane          #+#    #+#             */
-/*   Updated: 2023/11/22 17:22:48 by aheinane         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:45:58 by aheinane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *str )
-{
-	size_t	i;
+// size_t	ft_strlen(const char *str )
+// {
+// 	size_t	i;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+// 	i = 0;
+// 	while (str[i] != '\0')
+// 		i++;
+// 	return (i);
+// }
 
 int	ft_helper(va_list args, const char s)
 {
@@ -53,15 +53,13 @@ int	ft_helper(va_list args, const char s)
 int	ft_printf(const char *s, ...)
 {
 	va_list	args;
-	int		number;
 	int		i;
 	int		count;
 
-	number = ft_strlen(s);
 	i = 0;
 	count = 0;
 	va_start (args, s);
-	while (i < number)
+	while (s[i])
 	{
 		if (s[i] == '%')
 		{

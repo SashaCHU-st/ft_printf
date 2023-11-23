@@ -6,7 +6,7 @@
 /*   By: aheinane <aheinane@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:48:21 by aheinane          #+#    #+#             */
-/*   Updated: 2023/11/22 17:27:30 by aheinane         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:31:02 by aheinane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_ptr_len(unsigned long num)
 {
 	int	len;
 
-	len = 0; 
+	len = 0;
 	while (num != 0)
 	{
 		len++;
@@ -56,6 +56,8 @@ int	ft_print_ptr(unsigned long ptr)
 
 	count = 0;
 	count += write(1, "0x", 2);
+	if (count < 0)
+		return (-1);
 	if (ptr == 0)
 		return (count += write(1, "0", 1));
 	else
