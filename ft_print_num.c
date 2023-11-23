@@ -6,12 +6,11 @@
 /*   By: aheinane <aheinane@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:19:35 by aheinane          #+#    #+#             */
-/*   Updated: 2023/11/23 11:41:00 by aheinane         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:42:50 by aheinane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdlib.h>
 
 int	ft_puthexad_fd(unsigned int n)
 {
@@ -40,22 +39,7 @@ int	ft_puthexad_fd(unsigned int n)
 	return (0);
 }
 
-int	ft_number_len(int num)
-{
-	size_t	len;
-
-	len = 0;
-	if (num <= 0)
-		len = 1;
-	while (num)
-	{
-		len++;
-		num = num / 10;
-	}
-	return (len);
-}
-
-int	ft_putunbr_fd(unsigned int n)
+int	ft_putunbr_fd(unsigned long n)
 {
 	int	count;
 
@@ -71,41 +55,25 @@ int	ft_putunbr_fd(unsigned int n)
 	}
 	else
 	{
-		if (ft_putchar_fd(n + '0') < 0)
+		count += ft_putchar_fd(n + '0');
+		if (count < 0)
 			return (-1);
-		count += ft_number_len(n);
 	}
 	return (count);
 }
 
-int	ft_putnbr_fd(int n)
+int	ft_putnbr_fd(long n)
 {
-	long	i;
-	int		count;
+	int	count;
 
-	i = n;
 	count = 0;
-	if (i < 0)
+	if (n < 0)
 	{
 		count += ft_putchar_fd ('-');
 		if (count < 0)
 			return (-1);
-		i = -i;
+		n = -n;
 	}
-	if (i >= 10)
-	{
-		count += ft_putnbr_fd (i / 10);
-		if (count < 0)
-			return (-1);
-		count += ft_putnbr_fd (i % 10);
-		if (count < 0)
-			return (-1);
-	}
-	else
-	{
-		if (ft_putchar_fd(i + '0') < 0)
-			return (-1);
-		count += ft_number_len(i);
-	}
+	count += ft_putunbr_fd(n);
 	return (count);
 }
