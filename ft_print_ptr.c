@@ -6,31 +6,31 @@
 /*   By: aheinane <aheinane@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:48:21 by aheinane          #+#    #+#             */
-/*   Updated: 2023/11/23 11:31:02 by aheinane         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:19:01 by aheinane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthexadbig_fd(unsigned long n)
+int	ft_puthexad(unsigned long n)
 {
 	if (n >= 16)
 	{
-		if (ft_puthexadbig_fd(n / 16) < 0)
+		if (ft_puthexad(n / 16) < 0)
 			return (-1);
-		if (ft_puthexadbig_fd(n % 16) < 0)
+		if (ft_puthexad(n % 16) < 0)
 			return (-1);
 	}
 	else
 	{
 		if (n <= 9)
 		{
-			if (ft_putchar_fd(n + '0') < 0)
+			if (ft_putchar(n + '0') < 0)
 				return (-1);
 		}
 		else
 		{
-			if (ft_putchar_fd(n + 'a' - 10) < 0)
+			if (ft_putchar(n + 'a' - 10) < 0)
 				return (-1);
 		}
 	}
@@ -62,7 +62,7 @@ int	ft_print_ptr(unsigned long ptr)
 		return (count += write(1, "0", 1));
 	else
 	{
-		if (ft_puthexadbig_fd(ptr) < 0)
+		if (ft_puthexad(ptr) < 0)
 			return (-1);
 		count += ft_ptr_len(ptr);
 	}

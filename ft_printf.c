@@ -6,7 +6,7 @@
 /*   By: aheinane <aheinane@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:05:44 by aheinane          #+#    #+#             */
-/*   Updated: 2023/11/23 13:45:54 by aheinane         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:05:15 by aheinane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ int	ft_helper(va_list args, const char s)
 
 	count = 0;
 	if (s == 'c')
-		count = ft_putchar_fd(va_arg(args, int));
+		count = ft_putchar(va_arg(args, int));
 	else if (s == 's')
-		count += ft_putstr_fd(va_arg(args, char *));
+		count += ft_putstr(va_arg(args, char *));
 	else if (s == 'p')
 		count = ft_print_ptr(va_arg(args, unsigned long));
 	else if (s == 'd' || s == 'i' )
-		count = ft_putnbr_fd(va_arg(args, int));
+		count = ft_putnbr(va_arg(args, int));
 	else if (s == 'x')
 		count = ft_print_hexa(va_arg(args, unsigned int));
 	else if (s == 'X')
 		count = ft_print_hexabig(va_arg(args, unsigned int));
 	else if (s == 'u')
-		count = ft_putunbr_fd(va_arg(args, unsigned int));
+		count = ft_putunbr(va_arg(args, unsigned int));
 	else if (s == '%')
 	{
 		count = write(1, "%", 1);

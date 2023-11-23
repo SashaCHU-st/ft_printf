@@ -6,18 +6,18 @@
 /*   By: aheinane <aheinane@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:50:43 by aheinane          #+#    #+#             */
-/*   Updated: 2023/11/22 16:57:59 by aheinane         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:06:37 by aheinane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_fd(char c)
+int	ft_putchar(char c)
 {
 	return (write(1, &c, 1));
 }
 
-int	ft_putstr_fd(char *s)
+int	ft_putstr(char *s)
 {
 	size_t	i;
 	int		count;
