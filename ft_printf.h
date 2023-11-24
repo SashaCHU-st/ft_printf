@@ -6,14 +6,13 @@
 /*   By: aheinane <aheinane@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:06:49 by aheinane          #+#    #+#             */
-/*   Updated: 2023/11/23 15:19:32 by aheinane         ###   ########.fr       */
+/*   Updated: 2023/11/24 12:18:25 by aheinane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdarg.h>
-# include <stdlib.h>
 # include <unistd.h>
 
 int	ft_printf(const char *s, ...);
