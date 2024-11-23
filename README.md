@@ -12,6 +12,11 @@ This is achieved by parsing the format string, handling placeholders:
 • %% Prints a percent sign
 
 usage
+Include ft_printf in your project or run it directly:
+#include "ft_printf.h"
 
-
-
+int main()
+{
+    ft_printf("Hello, %s! The number is %d.\n", "world", 35);
+    return 0;
+}
